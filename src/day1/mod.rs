@@ -16,7 +16,7 @@ fn get_numbers(input: &str) -> Vec<i32> {
 }
 
 fn solution_part1(input: &str) -> i32 {
-	get_numbers(input.into()).iter().sum()
+	get_numbers(input).iter().sum()
 }
 
 fn solution_part2(input: &str) -> i32 {
@@ -25,7 +25,7 @@ fn solution_part2(input: &str) -> i32 {
 	let mut set: HashSet<i32> = HashSet::new();
 	let numbers = get_numbers(input);
 	let mut numbers = numbers.iter().cycle();
-	let mut sum = numbers.next().unwrap().clone();
+	let mut sum = *numbers.next().unwrap();
 
 	for number in numbers {
 		sum += number;
