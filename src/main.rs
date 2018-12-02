@@ -2,6 +2,7 @@ use std::env;
 use std::fs;
 
 mod day1;
+mod day2;
 
 fn main() {
     let day: u8 = env::args().nth(1).expect("Day needs to be passed.")
@@ -10,6 +11,7 @@ fn main() {
 
     match day {
 		1 => day1::solve(input),
+        2 => day2::solve(input),
         _ => panic!("Day {} not found", day),
     }
 }
