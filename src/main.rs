@@ -5,6 +5,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let day: u8 = env::args().nth(1).expect("Day needs to be passed.")
@@ -16,6 +17,7 @@ fn main() {
         2 => day2::solve(input),
         3 => day3::solve(input),
         4 => day4::solve(input),
+        5 => day5::solve(input),
         _ => panic!("Day {} not found", day),
     }
 }
