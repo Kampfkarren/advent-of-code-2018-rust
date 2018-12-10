@@ -153,65 +153,6 @@ fn test_parse() {
 }
 
 #[test]
-fn test_make_tree() {
-	let tree = make_tree(parse(include_str!("./test.txt")));
-
-	macro_rules! set {
-		() => { HashSet::new() };
-
-		($($chars:tt),*) => {{
-			let mut set = HashSet::new();
-			$(set.insert($chars);)*
-			set
-		}};
-	}
-
-	let mut map = HashMap::new();
-
-	map.insert('A', Node {
-		id: 'A',
-		number: 1,
-		children: set!['B', 'D'],
-		parents: set!['C'],
-	});
-
-	map.insert('B', Node {
-		id: 'B',
-		number: 2,
-		children: set!['E'],
-		parents: set!['A'],
-	});
-
-	map.insert('C', Node {
-		id: 'C',
-		number: 3,
-		children: set!['A', 'F'],
-		parents: set![],
-	});
-
-	map.insert('D', Node {
-		id: 'D',
-		number: 4,
-		children: set!['E'],
-		parents: set!['A'],
-	});
-
-	map.insert('E', Node {
-		id: 'E',
-		number: 5,
-		children: set![],
-		parents: set!['B', 'D', 'F'],
-	});
-
-	map.insert('F', Node {
-		id: 'F',
-		number: 6,
-		children: set!['E'],
-		parents: set!['C'],
-	});
-}
-
-#[test]
 fn test_solution_part1() {
 	assert_eq!(solution_part1(include_str!("./test.txt")), "CABDFE");
 }
